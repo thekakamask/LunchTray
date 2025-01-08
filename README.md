@@ -20,6 +20,8 @@
    - 🎨 **Modern Interface**
       - Built with Jetpack Compose for a smooth, declarative user experience.
       - Integration of Material 3 for an aesthetic and coherent design.
+   - 📤 Order Sharing:
+      - Share your order summary (menu details, total price) with other applications such as messaging or email apps.
 
 ## 🛠️ **Tech Stack**
    - **Kotlin**: Modern and concise language.
@@ -58,7 +60,10 @@
 5. **Enjoy**:
    -Explore the different options to discover the features.
 
-## 🛠️ **Next steps**
-   - Add full navigation between screens and ViewMode usage.
-   - Unit and integration testing to ensure reliability.
-   - Visual enhancements to enrich the user experience.
+## 📸 **Screenshots**
+- **Start Screen**:
+  ![Start Screen](screenshots/LunchTray1.png)
+- **Menu Screen**:
+  ![Menu Screen](screenshots/LunchTray2.png)
+- **Checkout Screen**:
+  ![Checkout Screen](screenshots/LunchTray3.png)

@@ -13,4 +13,7 @@
     <string name="tax">Tax: %s</string>
     <string name="total">Total: %s</string>
     <string name="submit">Submit</string>
+    <string name="new_submit_order">New Order</string>
+    <string name="order_details">Menu:\nEntree: %1$s\nSide dish: %2$s\nAccompaniment: %3$s\nTotal price: %4$s</string>
+    <string name="not_selected">Not selected</string>
 </resources>

@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -27,7 +28,7 @@ import com.dcac.lunchtray.model.OrderUiState
 @Composable
 fun CheckoutScreen(
     orderUiState: OrderUiState,
-    onNextButtonClicked: () -> Unit,
+    onSendButtonClicked: (String, String) -> Unit,
     onCancelButtonClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -35,6 +36,16 @@ fun CheckoutScreen(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
     ) {
+        val context = LocalContext.current
+        val newOrder = stringResource(R.string.new_submit_order)
+        val orderSummary = stringResource(
+            R.string.order_details,
+            orderUiState.entree?.name ?: context.getString(R.string.not_selected),
+            orderUiState.sideDish?.name ?: context.getString(R.string.not_selected),
+            orderUiState.accompaniment?.name ?: context.getString(R.string.not_selected),
+            orderUiState.orderTotalPrice.formatPrice()
+        )
+
         Text(
             text = stringResource(R.string.order_summary),
             fontWeight = FontWeight.Bold
@@ -77,7 +88,7 @@ fun CheckoutScreen(
             }
             Button(
                 modifier = Modifier.weight(1f),
-                onClick = onNextButtonClicked
+                onClick = { onSendButtonClicked(newOrder, orderSummary) }
             ) {
                 Text(stringResource(R.string.submit).uppercase())
             }
@@ -123,7 +134,7 @@ fun CheckoutScreenPreview() {
             orderTax = 1.00,
             orderTotalPrice = 16.00
         ),
-        onNextButtonClicked = {},
+        onSendButtonClicked = { subject: String, summary: String -> },
         onCancelButtonClicked = {},
         modifier = Modifier
             .padding(dimensionResource(R.dimen.padding_medium))
